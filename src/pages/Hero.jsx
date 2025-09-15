@@ -1,14 +1,9 @@
 import React, { useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import {
-  OrbitControls,
-  RoundedBox,
-  Environment,
-  Html,
-} from "@react-three/drei";
+import { OrbitControls, RoundedBox, Environment } from "@react-three/drei";
 import * as THREE from "three";
 
-function IPhone({ screenTexture }) {
+function IPhone({ screenTexture, scale = 1.1 }) {
   const phoneRef = useRef();
 
   // Rotasi idle
@@ -16,7 +11,6 @@ function IPhone({ screenTexture }) {
     if (phoneRef.current) {
       phoneRef.current.rotation.y += 0.002;
 
-      // Interaksi mouse → tilt sedikit
       const x = state.mouse.x * 0.2;
       const y = state.mouse.y * 0.2;
       phoneRef.current.rotation.x = THREE.MathUtils.lerp(
@@ -33,7 +27,7 @@ function IPhone({ screenTexture }) {
   });
 
   return (
-    <group ref={phoneRef} scale={1.1}>
+    <group ref={phoneRef} scale={scale}>
       {/* Frame luar (stainless) */}
       <RoundedBox args={[1, 2, 0.12]} radius={0.12} smoothness={15} castShadow>
         <meshPhysicalMaterial
@@ -65,13 +59,11 @@ function IPhone({ screenTexture }) {
 
       {/* Depan (bezel + layar) */}
       <group position={[0, 0, 0.061]}>
-        {/* Bezel hitam */}
         <mesh>
           <planeGeometry args={[0.95, 1.9]} />
           <meshStandardMaterial color="black" />
         </mesh>
 
-        {/* Layar */}
         <mesh position={[0, 0, 0.0005]}>
           <planeGeometry args={[0.9, 1.8]} />
           <meshPhysicalMaterial
@@ -107,45 +99,45 @@ export default function Hero() {
   video.play();
 
   const videoTexture = new THREE.VideoTexture(video);
-  videoTexture.minFilter = THREE.LinearFilter; // hindari garis-garis pixelated
+  videoTexture.minFilter = THREE.LinearFilter;
   videoTexture.magFilter = THREE.LinearFilter;
   videoTexture.encoding = THREE.sRGBEncoding;
-  videoTexture.anisotropy = 16; // buat lebih smooth di sudut miring
+  videoTexture.anisotropy = 16;
 
   return (
-    <section className="min-h-screen flex flex-col md:flex-row items-center justify-between px-6 md:px-20 py-12 bg-[#f6f4fb]">
+    <section className="min-h-screen flex flex-col-reverse md:flex-row items-center justify-between px-6 md:px-20 py-12 bg-[#f6f4fb]">
       {/* Left Text */}
-      <div className="max-w-xl mb-12 md:mb-0">
-        <p className="text-sm font-semibold mb-4 uppercase tracking-wider bg-gradient-to-r from-[#0988D9] to-[#0DABEB] text-transparent bg-clip-text">
-          New Ghost Browser
+      <div className="max-w-xl mb-12 md:mb-0 text-left md:text-left">
+        <p className="text-xs sm:text-sm font-semibold mb-3 uppercase tracking-wider bg-gradient-to-r from-[#0988D9] to-[#0DABEB] text-transparent bg-clip-text">
+          Aplikasi Pintar Keuangan
         </p>
 
-        <h1 className="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
-          <span className="block text-gray-900">Isolate Your</span>
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
+          <span className="block text-gray-900">Atur Keuangan</span>
           <span className="block bg-gradient-to-r from-[#0DABEB] via-[#0988D9] to-[#0DABEB] text-transparent bg-clip-text">
-            Identities.
+            Lebih Mudah & Teratur
           </span>
         </h1>
 
-        <p className="text-gray-600 text-lg md:text-xl leading-relaxed mb-8">
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-          nisi ut aliquip ex ea commodo consequat.
+        <p className="text-gray-600 text-base sm:text-lg md:text-xl leading-relaxed mb-8">
+          Catat pemasukan, kendalikan pengeluaran, dan rencanakan tabungan
+          dengan cara yang simpel. Semua dalam satu aplikasi untuk hidup yang
+          lebih tenang dan finansial yang sehat.
         </p>
 
-        <div className="flex items-center gap-4">
-          <button className="px-6 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-[#0988D9] via-[#0DABEB] to-[#0988D9] shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 hover:bg-[#0DABEB]">
-            Download Now
+        <div className="flex flex-col sm:flex-row items-center gap-4">
+          <button className="w-full sm:w-auto px-6 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-[#0988D9] via-[#0DABEB] to-[#0988D9] shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+            Install Sekarang
           </button>
-          <button className="px-6 py-3 rounded-xl font-semibold border border-gray-300 text-gray-700 hover:bg-gray-100 hover:scale-105 transition-all duration-300">
-            Learn More
+          <button className="w-full sm:w-auto px-6 py-3 rounded-xl font-semibold border border-gray-300 text-gray-700 hover:bg-gray-100 hover:scale-105 transition-all duration-300">
+            Pelajari Lebih Lanjut
           </button>
         </div>
       </div>
 
       {/* Right 3D iPhone */}
-      <div className="flex justify-center w-full md:w-1/2 h-[600px]">
+      <div className="flex justify-center w-full md:w-1/2 h-[400px] sm:h-[500px] md:h-[600px]">
         <Canvas camera={{ position: [0, 0, 3.5], fov: 40 }} shadows>
-          {/* Lighting setup */}
           <ambientLight intensity={0.5} />
           <directionalLight
             position={[3, 5, 5]}
@@ -161,8 +153,11 @@ export default function Hero() {
           />
           <Environment preset="sunset" />
 
-          {/* iPhone */}
-          <IPhone screenTexture={videoTexture} />
+          {/* iPhone → scale disesuaikan */}
+          <IPhone
+            screenTexture={videoTexture}
+            scale={window.innerWidth < 768 ? 0.8 : 1.1}
+          />
 
           <OrbitControls enableZoom={false} />
         </Canvas>
