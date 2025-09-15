@@ -1,10 +1,14 @@
-import Hero from "./components/Hero"
+import { BrowserRouter, Routes } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Hero from "./pages/Hero";
 
 function App() {
-
   return (
-    <Hero />
-  )
+    <BrowserRouter>
+      <Navbar />
+      <Hero />
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
