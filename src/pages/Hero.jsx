@@ -105,7 +105,11 @@ export default function Hero() {
   videoTexture.anisotropy = 16;
 
   return (
-    <section className="min-h-screen flex flex-col-reverse md:flex-row items-center justify-between px-6 md:px-20 py-12 bg-[#f6f4fb]">
+    <section className="min-h-screen flex flex-col-reverse md:flex-row items-center justify-between px-6 md:px-60 py-12 bg-[#f6f4fb]">
+      <div className="absolute inset-0">
+        <div className="absolute w-48 h-48 md:w-72 md:h-72 rounded-full bg-primary-100 opacity-20 blur-3xl top-10 left-10 animate-pulse" />
+        <div className="absolute w-72 h-72 md:w-96 md:h-96 rounded-full bg-primary-100 opacity-20 blur-3xl bottom-10 right-10 animate-bounce" />
+      </div>
       {/* Left Text */}
       <div className="max-w-xl mb-12 md:mb-0 text-left md:text-left">
         <p className="text-xs sm:text-sm font-semibold mb-3 uppercase tracking-wider bg-gradient-to-r from-[#0988D9] to-[#0DABEB] text-transparent bg-clip-text">
@@ -126,10 +130,10 @@ export default function Hero() {
         </p>
 
         <div className="flex flex-col sm:flex-row items-center gap-4">
-          <button className="w-full sm:w-auto px-6 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-[#0988D9] via-[#0DABEB] to-[#0988D9] shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+          <button className="w-full sm:w-auto px-6 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-[#0DABEB] via-[#0988D9] to-[#0DABEB] shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer">
             Install Sekarang
           </button>
-          <button className="w-full sm:w-auto px-6 py-3 rounded-xl font-semibold border border-gray-300 text-gray-700 hover:bg-gray-100 hover:scale-105 transition-all duration-300">
+          <button className="w-full sm:w-auto px-6 py-3 rounded-xl font-semibold border border-gray-300 text-gray-700 hover:bg-gray-100 hover:scale-105 transition-all duration-300 cursor-pointer">
             Pelajari Lebih Lanjut
           </button>
         </div>
@@ -151,7 +155,7 @@ export default function Hero() {
             groundColor={"#b1b1b1"}
             intensity={0.6}
           />
-          <Environment preset="sunset" />
+          <Environment preset="city" />
 
           {/* iPhone → scale disesuaikan */}
           <IPhone
