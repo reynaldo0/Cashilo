@@ -16,7 +16,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
         {/* Branding */}
         <div>
-          <h2 className="text-2xl font-extrabold tracking-tight">FinNote</h2>
+          <h2 className="text-2xl font-extrabold tracking-tight">Cashilo</h2>
           <p className="mt-3 text-sm text-white/80 leading-relaxed">
             Aplikasi catatan keuangan pintar untuk bantu kamu mengelola
             pemasukan, pengeluaran, dan tabungan dengan lebih mudah.
@@ -88,7 +88,7 @@ export default function Footer() {
 
       {/* Copyright */}
       <div className="mt-12 pt-6 border-t border-white/20 text-center text-sm text-white/70">
-        © {new Date().getFullYear()} FinNote. Semua Hak Dilindungi.
+        © {new Date().getFullYear()} Cashilo. Semua Hak Dilindungi.
       </div>
     </footer>
   );
