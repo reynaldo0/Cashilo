@@ -32,18 +32,27 @@ const Navbar = () => {
         </div>
 
         {/* Menu Desktop */}
-        <ul className="hidden md:flex space-x-6 text-gray-900 font-medium">
+        <ul className="hidden md:flex space-x-6 text-gray-900 font-medium items-center">
           {menuItems.map((item) => (
             <li key={item.name}>
-              <a
-                href={item.path}
-                className="relative transition duration-300 hover:text-primary-100 
-                  after:content-[''] after:absolute after:left-0 after:-bottom-1 
-                  after:h-[2px] after:w-0 after:bg-primary-100 after:transition-all 
-                  after:duration-300 hover:after:w-full font-bold text-black"
-              >
-                {item.name}
-              </a>
+              {item.name === "Download" ? (
+                <a
+                  href={item.path}
+                  className="px-4 py-2 rounded-full bg-primary-100 text-white font-bold shadow-md hover:bg-primary-200 transition duration-300"
+                >
+                  {item.name}
+                </a>
+              ) : (
+                <a
+                  href={item.path}
+                  className="relative transition duration-300 hover:text-primary-100 
+                    after:content-[''] after:absolute after:left-0 after:-bottom-1 
+                    after:h-[2px] after:w-0 after:bg-primary-100 after:transition-all 
+                    after:duration-300 hover:after:w-full font-bold text-black"
+                >
+                  {item.name}
+                </a>
+              )}
             </li>
           ))}
         </ul>
@@ -72,16 +81,27 @@ const Navbar = () => {
             : "opacity-0 scale-95 -translate-y-2 pointer-events-none"
         }`}
       >
-        {menuItems.map((item) => (
-          <a
-            key={item.name}
-            href={item.path}
-            onClick={() => setIsOpen(false)}
-            className="text-gray-900 font-medium hover:text-primary-100 transition"
-          >
-            {item.name}
-          </a>
-        ))}
+        {menuItems.map((item) =>
+          item.name === "Download" ? (
+            <a
+              key={item.name}
+              href={item.path}
+              onClick={() => setIsOpen(false)}
+              className="w-full text-center px-4 py-2 rounded-full bg-primary-100 text-white font-bold shadow-md hover:bg-primary-200 transition"
+            >
+              {item.name}
+            </a>
+          ) : (
+            <a
+              key={item.name}
+              href={item.path}
+              onClick={() => setIsOpen(false)}
+              className="text-gray-900 font-medium hover:text-primary-100 transition"
+            >
+              {item.name}
+            </a>
+          )
+        )}
       </div>
     </nav>
   );

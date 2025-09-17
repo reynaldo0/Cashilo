@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, RoundedBox, Environment } from "@react-three/drei";
 import * as THREE from "three";
@@ -14,7 +14,7 @@ function IPhone({ screenTexture, scale = 1.1 }) {
     if (phase === "spin") {
       // brutal spin
       phoneRef.current.rotation.y += 0.1; // cepat
-      if (phoneRef.current.rotation.y > Math.PI * 2) {
+      if (phoneRef.current.rotation.y > Math.PI * 3) {
         // muter 2x putaran
         phoneRef.current.rotation.y = 0;
         setPhase("float");
@@ -87,21 +87,42 @@ function IPhone({ screenTexture, scale = 1.1 }) {
   );
 }
 
-export default function Hero() {
-  // Video texture
-  const video = document.createElement("video");
-  video.src = "/vidio/demo.mp4";
-  video.loop = true;
-  video.muted = true;
-  video.playsInline = true;
-  video.autoplay = true;
-  video.play();
+export default function Hero({ onReady }) {
+  const videoRef = useRef(null);
+  const [videoTexture, setVideoTexture] = useState(null);
 
-  const videoTexture = new THREE.VideoTexture(video);
-  videoTexture.minFilter = THREE.LinearFilter;
-  videoTexture.magFilter = THREE.LinearFilter;
-  videoTexture.encoding = THREE.sRGBEncoding;
-  videoTexture.anisotropy = 16;
+  useEffect(() => {
+    const video = document.createElement("video");
+    video.src = "/vidio/demo.mp4";
+    video.loop = true;
+    video.muted = true;
+    video.playsInline = true;
+
+    const handleCanPlay = () => {
+      video.play();
+      const texture = new THREE.VideoTexture(video);
+      texture.minFilter = THREE.LinearFilter;
+      texture.magFilter = THREE.LinearFilter;
+      texture.encoding = THREE.sRGBEncoding;
+      texture.anisotropy = 16;
+
+      setVideoTexture(texture);
+
+      if (onReady) onReady(); // kasih tahu parent kalau siap
+    };
+
+    video.addEventListener("canplaythrough", handleCanPlay);
+    videoRef.current = video;
+
+    return () => {
+      video.removeEventListener("canplaythrough", handleCanPlay);
+    };
+  }, [onReady]);
+
+  if (!videoTexture) {
+    // jangan render Hero dulu, biar loading yang tampil
+    return null;
+  }
 
   return (
     <section className="min-h-screen flex flex-col-reverse md:flex-row items-center justify-between px-6 md:px-20 py-12 bg-[#f6f4fb]">
@@ -122,10 +143,16 @@ export default function Hero() {
           lebih tenang dan finansial yang sehat.
         </p>
         <div className="flex flex-col sm:flex-row items-center gap-4">
-          <a href="#download" className="w-full sm:w-auto px-6 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-[#0DABEB] via-[#0988D9] to-[#0DABEB] shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer text-center">
+          <a
+            href="#download"
+            className="w-full sm:w-auto px-6 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-[#0DABEB] via-[#0988D9] to-[#0DABEB] shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer text-center"
+          >
             Unduh Sekarang
           </a>
-          <a href="#feature" className="w-full sm:w-auto px-6 py-3 rounded-xl font-semibold border border-gray-300 text-gray-700 hover:bg-gray-100 hover:scale-105 transition-all duration-300 cursor-pointer text-center">
+          <a
+            href="#feature"
+            className="w-full sm:w-auto px-6 py-3 rounded-xl font-semibold border border-gray-300 text-gray-700 hover:bg-gray-100 hover:scale-105 transition-all duration-300 cursor-pointer text-center"
+          >
             Pelajari Lebih Lanjut
           </a>
         </div>
@@ -136,12 +163,7 @@ export default function Hero() {
         <Canvas camera={{ position: [0, 0, 3.5], fov: 40 }} shadows>
           <ambientLight intensity={0.5} />
           <directionalLight position={[3, 5, 5]} intensity={1.2} castShadow />
-          <hemisphereLight
-            skyColor={"#ffffff"}
-            groundColor={"#b1b1b1"}
-            intensity={0.6}
-          />
-          <Environment preset="city" />
+          <Environment preset="apartment" />
           <IPhone
             screenTexture={videoTexture}
             scale={window.innerWidth < 768 ? 0.8 : 1.1}

@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-html{
+html {
   scroll-behavior: smooth;
 }
 
@@ -124,4 +124,49 @@ html{
 }
 .animate-pulse-slow {
   animation: pulse-slow 8s ease-in-out infinite;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes blurFade {
+  from {
+    backdrop-filter: blur(20px);
+  }
+  to {
+    backdrop-filter: blur(0);
+  }
+}
+
+@keyframes bubbleMoveUp {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-120vh);
+  }
+}
+
+@keyframes bubbleMoveDown {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(120vh);
+  }
+}
+
+@keyframes textAppear {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
