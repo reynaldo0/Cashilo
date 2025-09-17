@@ -29,7 +29,7 @@ export default function Footer() {
           <ul className="space-y-2 text-sm">
             <li>
               <a
-                href="#home"
+                href="https://www.instagram.com/hidayatoc10/"
                 className="hover:text-yellow-300 transition-colors"
               >
                 Hidayatullah
@@ -37,7 +37,7 @@ export default function Footer() {
             </li>
             <li>
               <a
-                href="#fitur"
+                href="https://www.instagram.com/rynldysllino/"
                 className="hover:text-yellow-300 transition-colors"
               >
                 Reynaldo Yusellino
@@ -45,7 +45,7 @@ export default function Footer() {
             </li>
             <li>
               <a
-                href="#download"
+                href="https://www.instagram.com/fathifwzz_/"
                 className="hover:text-yellow-300 transition-colors"
               >
                 Fathi Fawwaz Amanullah
