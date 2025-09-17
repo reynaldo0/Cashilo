@@ -1,87 +1,73 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faPiggyBank,
-  faChartLine,
-  faMobileAlt,
-  faGift,
-} from "@fortawesome/free-solid-svg-icons";
+import { faMobileAlt, faChartBar } from "@fortawesome/free-solid-svg-icons";
 
 export default function AboutSection() {
-  const features = [
-    {
-      icon: faPiggyBank,
-      title: "Catat Semua Transaksi",
-      description:
-        "Masukkan pemasukan dan pengeluaran harian dengan mudah, agar kamu selalu tahu ke mana uangmu pergi.",
-    },
-    {
-      icon: faChartLine,
-      title: "Pantau Keuangan",
-      description:
-        "Visualisasi grafik dan laporan otomatis membuatmu bisa melihat kondisi keuangan secara cepat.",
-    },
-    {
-      icon: faGift,
-      title: "Uji Coba Tanpa Batas",
-      description:
-        "Nikmati semua fitur tanpa komitmen awal — eksplorasi bebas sesuai kebutuhan Anda.",
-    },
-    {
-      icon: faMobileAlt,
-      title: "Akses Dimana Saja",
-      description:
-        "Aplikasi ringan dan responsif, bisa diakses kapan saja melalui ponselmu.",
-    },
-  ];
-
   return (
-    <section className=" relative overflow-hidden min-h-screen bg-[#0988D9]">
-      <img
-        src="/wave/fitur.png"
-        alt="Wave"
-        className="w-full h-full object-cover will-change-transform"
-      />
-      <div className="py-20 px-6 md:px-20">
-        {/* Judul */}
-        <div className="max-w-4xl mx-auto text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-white">
-            Kenapa Pilih{" "}
-            <span className="bg-gradient-to-r from-gray-200 to-gray-300/90 text-transparent bg-clip-text">
-              Aplikasi Kami?
-            </span>
-          </h2>
-          <p className="text-white text-lg md:text-xl leading-relaxed">
-            Atur keuangan pribadi dengan cara yang lebih mudah, teratur, dan
-            menyenangkan. Berikut fitur unggulan yang akan memudahkan hidupmu:
-          </p>
+    <section className="py-20 px-6 md:px-20 bg-[#F5F9FF] relative overflow-hidden">
+      {/* Dekorasi background */}
+      <div className="absolute top-0 left-0 w-60 h-60 bg-[#0DABEB]/20 blur-3xl rounded-full -z-10"></div>
+      <div className="absolute bottom-0 right-0 w-72 h-72 bg-[#096FA0]/20 blur-3xl rounded-full -z-10"></div>
+
+      <div className="grid md:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
+        {/* Ilustrasi */}
+        <div className="flex justify-center">
+          <img
+            src="/about.png"
+            alt="Ilustrasi"
+            className="w-full max-w-md animate-float"
+          />
         </div>
 
-        {/* Cards */}
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4 max-w-7xl mx-auto">
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className={`relative group bg-white p-8 rounded-2xl shadow-lg transition-all duration-500
-    hover:shadow-2xl hover:-translate-y-6 hover:-rotate-3 hover:scale-110 hover:shadow-[#0DABEB]/50
-    animate-float animate-delay-${(index % 4) + 1}`}
-            >
-              <div className="absolute inset-0 rounded-2xl p-[2px] bg-gradient-to-r from-primary-100 to-[#0DABEB] opacity-0 group-hover:opacity-100 transition-opacity duration-500 border border-white"></div>
+        {/* Konten Teks */}
+        <div>
+          <p className="text-[#0DABEB] font-semibold mb-3">Tentang Kami</p>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">
+            Dipercaya Oleh <span className="text-[#0DABEB]">Ribuan</span> Orang
+          </h2>
+          <p className="text-gray-600 text-lg leading-relaxed mb-10">
+            Ribuan pengguna telah mempercayakan pengelolaan finansial mereka
+            bersama kami. Dengan keamanan mutakhir dan desain yang intuitif,
+            kami menghadirkan pengalaman modern yang bisa kamu andalkan.
+          </p>
 
-              <div className="relative z-10 flex flex-col items-center text-center">
-                <FontAwesomeIcon
-                  icon={feature.icon}
-                  className="text-5xl text-[#0DABEB] mb-4 group-hover:text-white transition-transform duration-500"
-                />
-                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-white transition-colors duration-500">
-                  {feature.title}
+          {/* Fitur List */}
+          <div className="space-y-6">
+            <div className="flex items-start gap-4 group">
+              <div className="flex items-center justify-center w-12 h-12 rounded-full bg-[#0DABEB] text-white shadow-lg transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110">
+                <FontAwesomeIcon icon={faMobileAlt} className="text-xl" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-gray-900 mb-1">
+                  Integrasi Perangkat Andal
                 </h3>
-                <p className="text-gray-600 group-hover:text-white">
-                  {feature.description}
+                <p className="text-gray-600">
+                  Hubungkan dan sinkronkan data di berbagai perangkat dengan
+                  cepat dan aman.
                 </p>
               </div>
             </div>
-          ))}
+
+            <div className="flex items-start gap-4 group">
+              <div className="flex items-center justify-center w-12 h-12 rounded-full bg-[#096FA0] text-white shadow-lg transition-transform duration-500 group-hover:-rotate-12 group-hover:scale-110">
+                <FontAwesomeIcon icon={faChartBar} className="text-xl" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-gray-900 mb-1">
+                  Manajemen Data Mudah
+                </h3>
+                <p className="text-gray-600">
+                  Analisis finansial jadi simpel dengan laporan otomatis yang
+                  jelas dan rapi.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Tombol */}
+          <button className="mt-10 px-8 py-4 rounded-xl bg-[#0DABEB] text-white font-semibold shadow-lg transition-all duration-500 hover:-translate-y-2 hover:rotate-3 hover:scale-105 hover:shadow-[#0DABEB]/50">
+            Pelajari Lebih Lanjut
+          </button>
         </div>
       </div>
     </section>

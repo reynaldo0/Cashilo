@@ -1,14 +1,16 @@
-import { BrowserRouter, Routes } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Feature from "./pages/Feature";
 import Hero from "./pages/Hero";
-import About from "./pages/About";
+import AboutSection from "./pages/About";
 
 function App() {
   return (
     <BrowserRouter>
       <Navbar />
       <Hero />
-      <About/>
+      <Feature/>
+      <AboutSection/>
     </BrowserRouter>
   );
 }

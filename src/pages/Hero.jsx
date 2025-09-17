@@ -105,9 +105,9 @@ export default function Hero() {
   videoTexture.anisotropy = 16;
 
   return (
-    <section className="min-h-screen flex flex-col-reverse md:flex-row items-center justify-between px-6 md:px-60 py-12 bg-[#f6f4fb]">
+    <section className="min-h-screen flex flex-col-reverse md:flex-row items-center justify-between px-6 md:px-40 py-12 bg-[#f6f4fb]">
       <div className="absolute inset-0">
-        <div className="absolute w-48 h-48 md:w-72 md:h-72 rounded-full bg-primary-100 opacity-20 blur-3xl top-10 left-10 animate-pulse" />
+        <div className="absolute w-48 h-48 md:w-72 md:h-72 rounded-full bg-primary-100 opacity-20 blur-3xl top-10 right-60 animate-pulse" />
         <div className="absolute w-72 h-72 md:w-96 md:h-96 rounded-full bg-primary-100 opacity-20 blur-3xl bottom-10 right-10 animate-bounce" />
       </div>
       {/* Left Text */}
