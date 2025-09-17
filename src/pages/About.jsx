@@ -4,7 +4,10 @@ import { faMobileAlt, faChartBar } from "@fortawesome/free-solid-svg-icons";
 
 export default function AboutSection() {
   return (
-    <section className="py-20 px-6 md:px-20 bg-[#f6f4fb] relative overflow-hidden">
+    <section
+      className="py-20 px-6 md:px-20 bg-[#f6f4fb] relative overflow-hidden"
+      id="about"
+    >
       {/* Dekorasi background */}
       <div className="absolute top-0 left-0 w-60 h-60 bg-[#0DABEB]/20 blur-3xl rounded-full animate-pulse-slow -z-10"></div>
       <div className="absolute bottom-0 right-0 w-72 h-72 bg-[#096FA0]/20 blur-3xl rounded-full animate-bounce-slow -z-10"></div>
@@ -79,12 +82,15 @@ export default function AboutSection() {
           </div>
 
           {/* Tombol */}
-          <button
-            className="mt-12 px-10 py-4 rounded-2xl bg-[#0DABEB] text-white font-semibold shadow-xl 
+          <div className="relative mt-10">
+            <a
+              href="#next"
+              className="mt-20 px-10 py-4 rounded-2xl bg-[#0DABEB] text-white font-semibold shadow-xl 
             transition-all duration-500 hover:-translate-y-3 hover:rotate-3 hover:scale-110 hover:shadow-[#0DABEB]/70"
-          >
-            Pelajari Lebih Lanjut
-          </button>
+            >
+              Pelajari Lebih Lanjut
+            </a>
+          </div>
         </div>
       </div>
     </section>

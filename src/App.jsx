@@ -6,6 +6,7 @@ import AboutSection from "./pages/About";
 import Next from "./pages/Next";
 import DownloadSection from "./pages/Download";
 import Footer from "./components/Footer";
+import VideoDemo from "./pages/Video";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Feature />
       <AboutSection />
       <Next />
+      <VideoDemo />
       <DownloadSection />
       <Footer />
     </BrowserRouter>

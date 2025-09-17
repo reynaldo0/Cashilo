@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
-import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const menuItems = [
-    { name: "Beranda", path: "/" },
-    { name: "Tentang", path: "#tentang" },
-    { name: "Fitur", path: "#fitur" },
-    { name: "Vidio", path: "#vidio" },
-    { name: "Tim", path: "#tim" },
+    { name: "Beranda", path: "#" },
+    { name: "Fitur", path: "#feature" },
+    { name: "Tentang", path: "#about" },
+    { name: "Vidio", path: "#demo" },
+    { name: "Download", path: "#download" },
   ];
 
   return (
@@ -28,7 +27,7 @@ const Navbar = () => {
         <div className="flex items-center space-x-2">
           <img src="/logo.png" alt="Logo" className="w-8 h-8 object-contain" />
           <span className="font-extrabold text-black drop-shadow-sm">
-            Cashilo 
+            Cashilo
           </span>
         </div>
 
@@ -36,15 +35,15 @@ const Navbar = () => {
         <ul className="hidden md:flex space-x-6 text-gray-900 font-medium">
           {menuItems.map((item) => (
             <li key={item.name}>
-              <Link
-                to={item.path}
+              <a
+                href={item.path}
                 className="relative transition duration-300 hover:text-primary-100 
                   after:content-[''] after:absolute after:left-0 after:-bottom-1 
                   after:h-[2px] after:w-0 after:bg-primary-100 after:transition-all 
                   after:duration-300 hover:after:w-full font-bold text-black"
               >
                 {item.name}
-              </Link>
+              </a>
             </li>
           ))}
         </ul>
@@ -74,16 +73,15 @@ const Navbar = () => {
         }`}
       >
         {menuItems.map((item) => (
-          <Link
+          <a
             key={item.name}
-            to={item.path}
+            href={item.path}
             onClick={() => setIsOpen(false)}
             className="text-gray-900 font-medium hover:text-primary-100 transition"
           >
             {item.name}
-          </Link>
+          </a>
         ))}
-
       </div>
     </nav>
   );
