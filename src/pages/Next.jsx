@@ -8,7 +8,7 @@ import {
 
 export default function Next() {
   return (
-    <section className="py-20 px-6 md:px-20 bg-[#F5F9FF] relative overflow-hidden">
+    <section className="py-20 px-6 md:px-20 bg-[#f6f4fb] relative overflow-hidden">
       {/* Dekorasi background */}
       <div className="absolute top-0 left-0 w-60 h-60 bg-[#0DABEB]/20 blur-3xl rounded-full animate-pulse-slow -z-10"></div>
       <div className="absolute bottom-0 right-0 w-72 h-72 bg-[#096FA0]/20 blur-3xl rounded-full animate-bounce-slow -z-10"></div>

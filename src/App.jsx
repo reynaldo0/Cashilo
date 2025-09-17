@@ -5,6 +5,7 @@ import Hero from "./pages/Hero";
 import AboutSection from "./pages/About";
 import Next from "./pages/Next";
 import DownloadSection from "./pages/Download";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <AboutSection />
       <Next />
       <DownloadSection />
+      <Footer />
     </BrowserRouter>
   );
 }
