@@ -14,7 +14,7 @@ function IPhone({ screenTexture, scale = 1.1 }) {
     if (phase === "spin") {
       // brutal spin
       phoneRef.current.rotation.y += 0.1; // cepat
-      if (phoneRef.current.rotation.y > Math.PI * 3) {
+      if (phoneRef.current.rotation.y > Math.PI * 2) {
         // muter 2x putaran
         phoneRef.current.rotation.y = 0;
         setPhase("float");
