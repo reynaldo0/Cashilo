@@ -27,7 +27,7 @@ const Navbar = () => {
         {/* Logo */}
         <div className="flex items-center space-x-2">
           <img src="/logo.png" alt="Logo" className="w-8 h-8 object-contain" />
-          <span className="font-extrabold text-primary-200 drop-shadow-sm">
+          <span className="font-extrabold text-black drop-shadow-sm">
             Cashilo 
           </span>
         </div>
@@ -41,7 +41,7 @@ const Navbar = () => {
                 className="relative transition duration-300 hover:text-primary-100 
                   after:content-[''] after:absolute after:left-0 after:-bottom-1 
                   after:h-[2px] after:w-0 after:bg-primary-100 after:transition-all 
-                  after:duration-300 hover:after:w-full font-bold text-primary-200"
+                  after:duration-300 hover:after:w-full font-bold text-black"
               >
                 {item.name}
               </Link>

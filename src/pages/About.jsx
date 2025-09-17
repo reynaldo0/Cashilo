@@ -6,38 +6,49 @@ export default function AboutSection() {
   return (
     <section className="py-20 px-6 md:px-20 bg-[#F5F9FF] relative overflow-hidden">
       {/* Dekorasi background */}
-      <div className="absolute top-0 left-0 w-60 h-60 bg-[#0DABEB]/20 blur-3xl rounded-full -z-10"></div>
-      <div className="absolute bottom-0 right-0 w-72 h-72 bg-[#096FA0]/20 blur-3xl rounded-full -z-10"></div>
+      <div className="absolute top-0 left-0 w-60 h-60 bg-[#0DABEB]/20 blur-3xl rounded-full animate-pulse-slow -z-10"></div>
+      <div className="absolute bottom-0 right-0 w-72 h-72 bg-[#096FA0]/20 blur-3xl rounded-full animate-bounce-slow -z-10"></div>
 
       <div className="grid md:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
         {/* Ilustrasi */}
-        <div className="flex justify-center">
+        <div className="flex justify-center relative group">
           <img
             src="/about.png"
             alt="Ilustrasi"
-            className="w-full max-w-md animate-float"
+            className="w-full max-w-md animate-float-slow group-hover:scale-110 group-hover:rotate-3 transition-all duration-700 ease-out"
           />
+          {/* Lingkaran efek brutal */}
+          <div className="absolute -z-10 w-80 h-80 bg-[#0DABEB]/10 rounded-full blur-2xl group-hover:scale-125 transition-transform duration-700"></div>
         </div>
 
         {/* Konten Teks */}
         <div>
-          <p className="text-[#0DABEB] font-semibold mb-3">Tentang Kami</p>
+          <p className="text-[#0DABEB] font-semibold mb-3 animate-slide-in">
+            Tentang Kami
+          </p>
           <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">
-            Dipercaya Oleh <span className="text-[#0DABEB]">Ribuan</span> Orang
+            Dipercaya Oleh{" "}
+            <span className="text-[#0DABEB] relative inline-block group-hover:animate-wiggle">
+              Ribuan
+            </span>{" "}
+            Orang
           </h2>
-          <p className="text-gray-600 text-lg leading-relaxed mb-10">
+          <p className="text-gray-600 text-lg leading-relaxed mb-10 animate-fade-in">
             Ribuan pengguna telah mempercayakan pengelolaan finansial mereka
             bersama kami. Dengan keamanan mutakhir dan desain yang intuitif,
             kami menghadirkan pengalaman modern yang bisa kamu andalkan.
           </p>
 
           {/* Fitur List */}
-          <div className="space-y-6">
+          <div className="space-y-8">
             <div className="flex items-start gap-4 group">
-              <div className="flex items-center justify-center w-12 h-12 rounded-full bg-[#0DABEB] text-white shadow-lg transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110">
-                <FontAwesomeIcon icon={faMobileAlt} className="text-xl" />
+              <div
+                className="flex items-center justify-center w-14 h-14 rounded-2xl bg-[#0DABEB] text-white shadow-xl 
+                transition-all duration-500 group-hover:rotate-12 group-hover:scale-125 group-hover:shadow-[#0DABEB]/70"
+              >
+                <FontAwesomeIcon icon={faMobileAlt} className="text-2xl" />
               </div>
-              <div>
+              <div className="transition-all duration-500 group-hover:translate-x-3">
                 <h3 className="text-xl font-bold text-gray-900 mb-1">
                   Integrasi Perangkat Andal
                 </h3>
@@ -49,10 +60,13 @@ export default function AboutSection() {
             </div>
 
             <div className="flex items-start gap-4 group">
-              <div className="flex items-center justify-center w-12 h-12 rounded-full bg-[#096FA0] text-white shadow-lg transition-transform duration-500 group-hover:-rotate-12 group-hover:scale-110">
-                <FontAwesomeIcon icon={faChartBar} className="text-xl" />
+              <div
+                className="flex items-center justify-center w-14 h-14 rounded-2xl bg-[#096FA0] text-white shadow-xl 
+                transition-all duration-500 group-hover:-rotate-12 group-hover:scale-125 group-hover:shadow-[#096FA0]/70"
+              >
+                <FontAwesomeIcon icon={faChartBar} className="text-2xl" />
               </div>
-              <div>
+              <div className="transition-all duration-500 group-hover:translate-x-3">
                 <h3 className="text-xl font-bold text-gray-900 mb-1">
                   Manajemen Data Mudah
                 </h3>
@@ -65,7 +79,10 @@ export default function AboutSection() {
           </div>
 
           {/* Tombol */}
-          <button className="mt-10 px-8 py-4 rounded-xl bg-[#0DABEB] text-white font-semibold shadow-lg transition-all duration-500 hover:-translate-y-2 hover:rotate-3 hover:scale-105 hover:shadow-[#0DABEB]/50">
+          <button
+            className="mt-12 px-10 py-4 rounded-2xl bg-[#0DABEB] text-white font-semibold shadow-xl 
+            transition-all duration-500 hover:-translate-y-3 hover:rotate-3 hover:scale-110 hover:shadow-[#0DABEB]/70"
+          >
             Pelajari Lebih Lanjut
           </button>
         </div>
