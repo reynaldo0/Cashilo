@@ -39,7 +39,7 @@ export default function Next() {
           </p>
 
           {/* Tombol */}
-          <a href="download"
+          <a href="#download"
             className="px-10 py-4 rounded-2xl bg-[#0DABEB] text-white font-semibold shadow-xl 
             transition-all duration-500 hover:-translate-y-3 hover:rotate-3 hover:scale-110 hover:shadow-[#0DABEB]/70"
           >
