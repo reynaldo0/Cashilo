@@ -122,10 +122,10 @@ export default function Hero() {
           lebih tenang dan finansial yang sehat.
         </p>
         <div className="flex flex-col sm:flex-row items-center gap-4">
-          <a href="#download" className="w-full sm:w-auto px-6 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-[#0DABEB] via-[#0988D9] to-[#0DABEB] shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer">
+          <a href="#download" className="w-full sm:w-auto px-6 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-[#0DABEB] via-[#0988D9] to-[#0DABEB] shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer text-center">
             Unduh Sekarang
           </a>
-          <a href="#feature" className="w-full sm:w-auto px-6 py-3 rounded-xl font-semibold border border-gray-300 text-gray-700 hover:bg-gray-100 hover:scale-105 transition-all duration-300 cursor-pointer">
+          <a href="#feature" className="w-full sm:w-auto px-6 py-3 rounded-xl font-semibold border border-gray-300 text-gray-700 hover:bg-gray-100 hover:scale-105 transition-all duration-300 cursor-pointer text-center">
             Pelajari Lebih Lanjut
           </a>
         </div>
